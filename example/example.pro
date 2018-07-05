@@ -25,7 +25,7 @@ win32{
     OBJECTS_DIR = $$PWD/build_/obj
 }
 
-win32: LIBS += -L$$PWD/../bin/ -lNDBPool
+LIBS += -L$$PWD/../bin/ -lNDBPool
 DEPENDPATH += $$PWD/../bin
 
 # import dll file
