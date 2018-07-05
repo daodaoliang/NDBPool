@@ -18,15 +18,19 @@ HEADERS += \
     testconnection.h \
     threadtest.h
 
+# 输出定义
 win32{
     DESTDIR = $$PWD/../bin
     MOC_DIR = $$PWD/build_/moc
     RCC_DIR = $$PWD/build_/rcc
     OBJECTS_DIR = $$PWD/build_/obj
 }
-
-LIBS += -L$$PWD/../bin/ -lNDBPool
-DEPENDPATH += $$PWD/../bin
+unix{
+    DESTDIR = $$PWD/../bin
+    MOC_DIR = $$PWD/build_/moc
+    RCC_DIR = $$PWD/build_/rcc
+    OBJECTS_DIR = $$PWD/build_/obj
+}
 
 # import dll file
 include($$PWD/../NDBPool/NDBPool_inc.pri)

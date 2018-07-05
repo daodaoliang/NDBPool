@@ -6,3 +6,14 @@
 
 INCLUDEPATH += $$PWD\inc
 
+win32{
+    LIBS += -L$$PWD/../bin/ -lNDBPool
+    DEPENDPATH += $$PWD/../bin
+}
+
+unix{
+    LIBS += -L$$PWD/../bin/ -lNDBPool
+    DEPENDPATH += $$PWD/../bin
+}
+
+
