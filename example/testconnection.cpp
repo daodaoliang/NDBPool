@@ -6,12 +6,12 @@ TestConnection::TestConnection(int param_num, QThread *parent) : QThread(parent)
 
 void TestConnection::run()
 {
-    QSqlDatabase innerDB = NDBPool::getNewConnection("127.0.0.1","test","root","Fuck1024",3306);
-    qDebug() << "short thread no:" << threadNum << "db name:" << innerDB.connectionName() << "db is vaild:" << innerDB.isOpen() << "\n";
+    QSqlDatabase innerDB = NDBPool::getNewConnection("127.0.0.1","test","root","",3306);
+    qDebug() << "short thread no:" << threadNum << "connection name:" << innerDB.connectionName() << "db is vaild:" << innerDB.isOpen() << "\n";
     QThread::msleep(2000);
     NDBPool::closeConnection(innerDB);
-    QSqlDatabase innerDB_002 = NDBPool::getNewConnection("127.0.0.1","test","root","Fuck1024",3306,true,"daodaoliang");
-    qDebug() << "long thread no:" << threadNum << "db name:" << innerDB_002.connectionName() << "db is vaild:" << innerDB_002.isOpen() << "\n";
+    QSqlDatabase innerDB_002 = NDBPool::getNewConnection("127.0.0.1","test","root","",3306,true,"daodaoliang");
+    qDebug() << "long thread no:" << threadNum << "connection name:" << innerDB_002.connectionName() << "db is vaild:" << innerDB_002.isOpen() << "\n";
     this->quit();
 }
 
